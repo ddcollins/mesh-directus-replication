@@ -19,9 +19,9 @@ sources:
       graphql:
         endpoint: http://localhost:8055/graphql
         schemaHeaders:
-          Authorization: Bearer MyPassword
+          Authorization: Bearer
         operationHeaders:
-          Authorization: Bearer MyPassword
+          Authorization: Bearer 
         batch: false
 
 transforms:
