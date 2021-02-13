@@ -64,8 +64,8 @@ services:
       STORAGE_SPACES_BUCKET: "project"
       STORAGE_SPACES_REGION: "local"
 
-      ADMIN_EMAIL: "example@us
-      ADMIN_PASSWORD:
+      ADMIN_EMAIL: "admin@example.com"
+      ADMIN_PASSWORD: "password"
 
 networks:
   directus:
