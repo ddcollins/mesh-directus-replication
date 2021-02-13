@@ -1,0 +1,35 @@
+sources:
+  - name: Academy
+    transforms:
+      - filterSchema:
+          - Query.!server
+      #- encapsulate:
+      #    applyTo:
+      #      query: true
+      #      mutation: false
+      #      subscription: false
+      #- rename:
+      #    - from:
+      #        type: Query
+      #        field: items
+      #      to:
+      #        type: Query
+      #        field: academy
+    handler:
+      graphql:
+        endpoint: http://localhost:8055/graphql
+        schemaHeaders:
+          Authorization: Bearer MyPassword
+        operationHeaders:
+          Authorization: Bearer MyPassword
+        batch: false
+
+transforms:
+  - namingConvention:
+      # TODO: Causes issue with union types
+      # typeNames: pascalCase
+      enumValues: upperCase
+      fieldNames: camelCase
+
+serve:
+  port: 5000

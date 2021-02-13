@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:12
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    networks:
+      - directus
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "directus"
+      POSTGRES_PASSWORD: "directus"
+      POSTGRES_DB: "directus"
+
+  cache:
+    image: redis:6
+    networks:
+      - directus
+    ports:
+      - 6380:6380
+
+  storage:
+    image: minio/minio
+    command: "server /data"
+    networks:
+      - directus
+    ports:
+      - 9000:9000
+    volumes:
+      - ./data/storage:/data
+    environment:
+      MINIO_ACCESS_KEY: "JROADUSOTPTSBXVKQROI"
+      MINIO_SECRET_KEY: "2NGE4ZTc4MjBmNTU1NTFhAVuYjk0MWNhYWViZjMyNTY"
+
+  directus:
+    image: directus/directus:v9.0.0-rc.37
+    ports:
+      - 8055:8055
+    networks:
+      - directus
+    environment:
+      KEY: "255d861b-5ea1-5996-9aa3-922530ec40b1"
+      SECRET: "6116487b-cda1-52c2-b5b5-c8022c45e263"
+
+      DB_CLIENT: "pg"
+      DB_HOST: "database"
+      DB_PORT: "5432"
+      DB_DATABASE: "directus"
+      DB_USER: "directus"
+      DB_PASSWORD: "directus"
+
+      CACHE_ENABLED: "false"
+      CACHE_STORE: "redis"
+      CACHE_REDIS: "redis://cache:6380"
+
+      STORAGE_LOCATIONS: "spaces"
+      STORAGE_SPACES_DRIVER: "s3"
+      STORAGE_SPACES_PUBLIC_URL: "http://127.0.0.1:9000"
+      STORAGE_SPACES_KEY: "JROADUSOTPTSBXVKQROI"
+      STORAGE_SPACES_SECRET: "2NGE4ZTc4MjBmNTU1NTFhAVuYjk0MWNhYWViZjMyNTY"
+      STORAGE_SPACES_ENDPOINT: "http://127.0.0.1:9000"
+      STORAGE_SPACES_BUCKET: "project"
+      STORAGE_SPACES_REGION: "local"
+
+      ADMIN_EMAIL: "example@us
+      ADMIN_PASSWORD:
+
+networks:
+  directus:
