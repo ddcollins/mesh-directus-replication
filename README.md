@@ -1,5 +1,5 @@
 # mesh-directus-replication
-A temporary project to replicate the errors when connection to Directus
+A temporary project to replicate the errors when connected to Directus.
 
 ### Setup
 1. Run `yarn install`
