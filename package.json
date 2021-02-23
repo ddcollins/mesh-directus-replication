@@ -1,24 +1,19 @@
 {
   "name": "mesh-directus-replication",
   "dependencies": {
-    "@graphql-mesh/cli": "^0.15.*",
-    "@graphql-mesh/graphql": "^0.13.13",
-    "@graphql-mesh/json-schema": "^0.10.2",
-    "@graphql-mesh/transform-encapsulate": "^0.1.23",
-    "@graphql-mesh/transform-filter-schema": "^0.8.27",
-    "@graphql-mesh/transform-naming-convention": "^0.6.26",
-    "@graphql-mesh/transform-rename": "^0.7.21",
-    "@graphql-mesh/transform-resolvers-composition": "^0.7.26",
+    "@graphql-mesh/cli": "0.19.2",
+    "@graphql-mesh/graphql": "^0.13.17",
+    "@graphql-mesh/json-schema": "^0.10.7",
+    "@graphql-mesh/transform-encapsulate": "^0.1.27",
+    "@graphql-mesh/transform-filter-schema": "^0.9.0",
+    "@graphql-mesh/transform-naming-convention": "^0.6.30",
+    "@graphql-mesh/transform-rename": "^0.8.1",
+    "@graphql-mesh/transform-resolvers-composition": "^0.7.30",
     "cli-table": "^0.3.4",
     "dotenv": "^8.2.0",
     "figlet": "^1.5.0",
     "graphql": "^15.4.*",
     "jsonwebtoken": "^8.5.1",
-    "minimist": "^1.2.5",
-    "pg": "^8.5.1",
-    "pg-hstore": "^2.3.3",
-    "redis": "^3.0.2",
-    "sequelize": "^6.5.0",
-    "uuid": "^8.3.2"
+    "minimist": "^1.2.5"
   }
 }

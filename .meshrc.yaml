@@ -3,6 +3,7 @@ sources:
     transforms:
       - filterSchema:
           - Query.!server
+      # TODO: enabling results in error
       #- encapsulate:
       #    applyTo:
       #      query: true
@@ -19,17 +20,19 @@ sources:
       graphql:
         endpoint: http://localhost:8055/graphql
         schemaHeaders:
+          # Directus token goes after Bearer
           Authorization: Bearer
         operationHeaders:
-          Authorization: Bearer 
+          Authorization: Bearer
+        # TODO: enabling results in error
         batch: false
 
 transforms:
-  - namingConvention:
+  #- namingConvention:
       # TODO: Causes issue with union types
       # typeNames: pascalCase
-      enumValues: upperCase
-      fieldNames: camelCase
+      # enumValues: upperCase
+      # fieldNames: camelCase
 
 serve:
   port: 5000
